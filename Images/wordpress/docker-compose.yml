@@ -1,0 +1,15 @@
+version: "3.2"
+services:
+  wordpress:
+    image: ${IMAGE_NAME}
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+      - CENTOS_TAG
+      - BUILD_DATE
+      - RELEASE_DATE
+      - IMAGE_NAME
+    ports:
+    - "80:80"
+    network_mode: "host"
