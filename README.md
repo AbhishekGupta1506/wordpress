@@ -1,10 +1,13 @@
 # wordpress
+
 Launch wordpress site
 
 ======================================================
+
 Pre-requisite:
     1. Docker and docker-compose needs to be installed
     2. git cli
+
 ======================================================
 
 Clone git repo
@@ -17,6 +20,7 @@ Create docker wordpress docker image using following steps:
         docker-compose build --no-cache
 
 =======================================================
+
 Launch mysql DB image and create database for wordpress
 1. connect to DB using following:
     a. mysql -uroot -pwordpress -hlocalhost
@@ -24,6 +28,7 @@ Launch mysql DB image and create database for wordpress
     c. FLUSH PRIVILEGES;
 
 ======================================================
+
 Launch wordpress image and configure
 1. connect to wordpress container and configure
     a. docker exec -it wordpress_wordpress_1 bash
@@ -35,6 +40,7 @@ Launch wordpress image and configure
         iv. define( 'DB_HOST', '<EC2_instance_Host_Name>' );
 
 =====================================================
+
 Login to wordpress URL
 1. Open url
     a. http://<hostname | public IP | Loadbalance | public domain>/
@@ -43,3 +49,5 @@ Login to wordpress URL
         ii. Name
         iii. Password -- Passw0rd@1234
         iv. email -- abhishekgupta1506@gmail.com
+        
+        
