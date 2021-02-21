@@ -142,7 +142,7 @@ Pre-requisite:
 
         a. cd ./wordpress/Infra/
 
-        b. Add the network Ip from where connection to ec2 is needed in var.tf
+        b. Add the network Ip from where connection to ec2 is needed in var.tf(var name to update network_ip_local)
         
         c. Init the terraform dir
             
