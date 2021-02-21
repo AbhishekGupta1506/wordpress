@@ -41,7 +41,7 @@ variable "private_subnet" {
 }
 
 variable "network_ip_local" {
-  default = "121.241.162.12/32"
+  default = "XXX.XXX.XXX.XXX/32"
 }
 
 variable "instance_type" {
