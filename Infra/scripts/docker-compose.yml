@@ -1,0 +1,35 @@
+version: "3.2"
+volumes:
+  db_data: {}
+services:
+  mysql_db:
+    image: mysql:5.7
+    container_name: wordpress_db
+    hostname: wordpress_db
+    mem_limit: 350M
+    cpus: .25
+    ports:
+    - "3306:3306"
+    environment:
+    - MYSQL_ROOT_PASSWORD=wordpress
+    volumes:
+    - db_data:/var/lib/mysql
+    networks:
+    - db
+    restart: always
+  wordpress:
+    image: abhishekgupta1506/wordpress:latest
+    container_name: wordpress_instance
+    hostname: wordpress_instance
+    mem_limit: 200M
+    cpus: .25
+    depends_on:
+      - mysql_db
+    ports:
+    - "80:80"
+    networks:
+    - wordpress
+    - db
+networks:
+  db:
+  wordpress:
