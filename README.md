@@ -177,3 +177,11 @@ Pre-requisite:
         a. Follow the steps 2. mentioned under "Launch wordpress image and configure" 
 
         b. Follow steps mentioned under "Login to wordpress URL"
+
+======================================================
+
+Application deployment using SALT
+
+    1. From salt master run the command
+
+        a. salt wordpress* state.apply
