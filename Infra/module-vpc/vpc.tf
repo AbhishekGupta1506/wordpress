@@ -5,9 +5,9 @@ variable "vpc-cidr" {}
 variable "public_subnet" {}
 variable "private_subnet" {}
 ## EIP
-resource "aws_eip" "eip-wordpress" {
-  vpc = true
-}
+#resource "aws_eip" "eip-wordpress" {
+#  vpc = true
+#}
 
 resource "aws_vpc" "vpc-wordpress" {
   cidr_block = "${var.vpc-cidr}"
@@ -30,24 +30,24 @@ resource "aws_internet_gateway" "ig-wordpress" {
 }
 
 ## NAT Gateway
-resource "aws_nat_gateway" "nat-gw-wordpress" {
-  allocation_id = "${aws_eip.eip-wordpress.id}"
-  subnet_id = "${aws_subnet.subnet-pub-wordpress.id}"
-  depends_on = ["aws_internet_gateway.ig-wordpress"]
-}
+#resource "aws_nat_gateway" "nat-gw-wordpress" {
+#  allocation_id = "${aws_eip.eip-wordpress.id}"
+#  subnet_id = "${aws_subnet.subnet-pub-wordpress.id}"
+#  depends_on = ["aws_internet_gateway.ig-wordpress"]
+#}
 
 
 #Route table creation, attach to VPC & allow traffic through NAT Gatway
-resource "aws_route_table" "rt-pri-wordpress" {
-  vpc_id = "${aws_vpc.vpc-wordpress.id}"
-  route {
-    cidr_block = "0.0.0.0/0"
-    nat_gateway_id = "${aws_nat_gateway.nat-gw-wordpress.id}"
-  }
-  tags = {
-    Name = "rt-pri-wordpress"
-  }
-} 
+#resource "aws_route_table" "rt-pri-wordpress" {
+#  vpc_id = "${aws_vpc.vpc-wordpress.id}"
+#  route {
+#    cidr_block = "0.0.0.0/0"
+#    nat_gateway_id = "${aws_nat_gateway.nat-gw-wordpress.id}"
+#  }
+#  tags = {
+#    Name = "rt-pri-wordpress"
+#  }
+#} 
 #Route table creation, attach to VPC & allow traffic b/w vpc & IG
 resource "aws_route_table" "rt-pub-wordpress" {
   vpc_id = "${aws_vpc.vpc-wordpress.id}"
@@ -90,8 +90,8 @@ resource "aws_route_table_association" "rt-ass-pub-wordpress" {
 }
 
 ## Route associations private subnet
-resource "aws_route_table_association" "rt-ass-pri-wordpress" {
-  subnet_id = "${aws_subnet.subnet-pri-wordpress.id}"
-  route_table_id = "${aws_route_table.rt-pri-wordpress.id}"
-}
+#resource "aws_route_table_association" "rt-ass-pri-wordpress" {
+#  subnet_id = "${aws_subnet.subnet-pri-wordpress.id}"
+#  route_table_id = "${aws_route_table.rt-pri-wordpress.id}"
+#}
 
