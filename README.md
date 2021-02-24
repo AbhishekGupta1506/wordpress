@@ -112,9 +112,10 @@ Login to wordpress URL
         iii. Password -- Passw0rd@1234
         
         iv. email -- abhishekgupta1506@gmail.com
-                
+
+Milestone 2:              
 ======================================================
-Milestone 2:
+
 
 Infra creation using terraform
 
@@ -180,8 +181,8 @@ Pre-requisite:
 
         b. Follow steps mentioned under "Login to wordpress URL"
 
-======================================================
 Milestone 3:
+======================================================
 
 Application deployment using SALT
 
