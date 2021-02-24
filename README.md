@@ -2,6 +2,7 @@
 
 Launch wordpress site
 
+Milestone 1:
 ======================================================
 
 Pre-requisite:
@@ -113,6 +114,7 @@ Login to wordpress URL
         iv. email -- abhishekgupta1506@gmail.com
                 
 ======================================================
+Milestone 2:
 
 Infra creation using terraform
 
@@ -179,6 +181,7 @@ Pre-requisite:
         b. Follow steps mentioned under "Login to wordpress URL"
 
 ======================================================
+Milestone 3:
 
 Application deployment using SALT
 
